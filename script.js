@@ -35,6 +35,7 @@ let changeColor = (square) => {
 
 
 function eraseGrid(){
+    let squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.style.backgroundColor = "white";
     });
@@ -52,8 +53,8 @@ function removeGrid(){
 function createUserGrid(){
     removeGrid();
     let query = prompt("Enter the amount of rows x columns you want");
-    while(isNaN(query))
-    query = prompt("Please enter a number");
+    while(isNaN(query) || query >100)
+    query = prompt("Please enter a number less than 100");
     createGrid(query);
 }
 
