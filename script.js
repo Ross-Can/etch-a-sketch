@@ -1,8 +1,16 @@
-let grid = document.querySelector('.grid');
+createGrid(16);
 
-createGrid(2);
+function applyHover(){
+    let squares = document.querySelectorAll('.square');
+    squares.forEach((square) => {
+        square.addEventListener('mouseover', function(){
+            changeColor(square)
+        });
+    });
+}
 
 function createGrid(numOfRows){
+    let grid = document.querySelector('.grid');
     for(let row=0; row<numOfRows; row++){
     let newRow = document.createElement('div');
     newRow.classList = "row";
@@ -13,26 +21,40 @@ function createGrid(numOfRows){
     }
     grid.appendChild(newRow);  
 }
+applyHover();
 }
 
-let squares = document.querySelectorAll('.square');
 
-let changeColor = (square) => {console.log(square);
+
+let changeColor = (square) => {
     square.style.backgroundColor = "black";
     let blackness = 25.6;
    
 };
 
-squares.forEach((square) => {
-    square.addEventListener('mouseover', function(){
-        changeColor(square)
-    });
-});
+
 
 function eraseGrid(){
     squares.forEach((square) => {
         square.style.backgroundColor = "white";
     });
+}
+
+function removeGrid(){
+    let gridContainer = document.querySelector(".grid-container");
+    while(gridContainer.firstChild)
+    gridContainer.removeChild(gridContainer.firstChild);
+    let grid = document.createElement("div");
+    grid.classList = "grid";
+    gridContainer.appendChild(grid);
+}
+
+function createUserGrid(){
+    removeGrid();
+    let query = prompt("Enter the amount of rows x columns you want");
+    while(isNaN(query))
+    query = prompt("Please enter a number");
+    createGrid(query);
 }
 
 
