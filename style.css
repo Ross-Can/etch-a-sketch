@@ -5,6 +5,11 @@ body{
     align-items: center;
 }
 
+button{
+    padding: 8px;
+    margin: 8px;
+}
+
 .grid{
     display: flex;
     flex-direction: column;
@@ -21,7 +26,5 @@ body{
     border:1px solid black;
 }
 
-.square:hover{
-    background-color: black;
-}
+
 
