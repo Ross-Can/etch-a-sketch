@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.square{
+    width: 40px;
+    height: 40px;
+    border:1px solid black;
+}
+
+.square:hover{
+    background-color: black;
+}
+
