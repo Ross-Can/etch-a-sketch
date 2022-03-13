@@ -17,6 +17,7 @@ function createGrid(numOfRows){
     for(let square = 0; square < numOfRows; square++){
         let newSquare = document.createElement('div');
         newSquare.classList = "square";
+        newSquare.style.backgroundColor = "rgb(255, 255, 255)";
         newRow.appendChild(newSquare);
     }
     grid.appendChild(newRow);  
@@ -24,20 +25,22 @@ function createGrid(numOfRows){
 applyHover();
 }
 
-
-
 let changeColor = (square) => {
-    square.style.backgroundColor = "black";
-    let blackness = 25.6;
    
+    let rgbCode = square.style.backgroundColor;
+    
+    rgbCode = rgbCode.substring(rgbCode.indexOf('(') + 1, rgbCode.indexOf(','));
+    console.log(rgbCode);
+    if (parseInt(rgbCode) <= 0) return;
+    let code = parseInt(rgbCode) - 25;
+    console.log(code);
+    square.style.backgroundColor = `rgb(${code},${code},${code})`;
 };
-
-
 
 function eraseGrid(){
     let squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
-        square.style.backgroundColor = "white";
+        square.style.backgroundColor = "rgb(255, 255, 255)";
     });
 }
 
