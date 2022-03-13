@@ -5,6 +5,11 @@ body{
     align-items: center;
 }
 
+.buttons{
+    display:flex;
+    flex-direction: row;
+}
+
 button{
     padding: 8px;
     margin: 8px;
